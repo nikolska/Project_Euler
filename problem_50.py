@@ -10,23 +10,26 @@
 # Which prime, below one-million, can be written as the sum of the most consecutive primes?
 
 
-# !!! work only for small numbers !!!
+# !!! work only if you know numbers 'below' and 'terms' !!!
 
 import sympy
 
 
-def prime_():
+def prime_(below):
     prime_numbers = []
     n = 1
-    while len(prime_numbers) < 1000:
+    while True:
         if sympy.isprime(n):
-            prime_numbers.append(n)
+            if n < below:
+                prime_numbers.append(n)
+            else:
+                break
         n += 1
     return prime_numbers
 
 
 def prime_sum(below, terms):
-    list_ = prime_()
+    list_ = prime_(below)
     result = 0
     a, b = 0, terms
     while True:
@@ -40,4 +43,4 @@ def prime_sum(below, terms):
 
 
 if __name__ == '__main__':
-    prime_sum(10000, 30)
+    prime_sum(1000000, 543)
