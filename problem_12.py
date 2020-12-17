@@ -16,28 +16,18 @@
 #
 # What is the value of the first triangle number to have over five hundred divisors?
 
-# !!! don't work for big numbers!!!
+# !!! don't (slowly) work for numbers bigger than 100!!!
 
 def triangle_numbers():
-    list_num = []
-    list_range = list(range(1, 10))
-    for i in list_range:
-        list_num.append(sum(list_range[:i]))
-        i += 1
-    return list_num
+    n = 1
+    while True:
+        x = n * (n + 1) >> 1
+        n += 1
+        yield x
 
 
-def divisors(number):
-    div_list = [i for i in range(1, number+1) if number % i == 0]
-    return len(div_list)
-
-
-def search():
-    triangle_list = triangle_numbers()
-    for number in triangle_list:
-        if divisors(number) == 6:
-            return number
-
-
-if __name__ == '__main__':
-    print(search())
+for num in triangle_numbers():
+    div_list = [i for i in range(1, num + 1) if num % i == 0]
+    if len(div_list) > 500:
+        print(num)
+        break
