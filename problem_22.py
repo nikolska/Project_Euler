@@ -33,3 +33,5 @@ for name in sorted_names:
     n += 1
 
 print(main_points)
+
+file.close()
