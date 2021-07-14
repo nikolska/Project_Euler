@@ -49,7 +49,7 @@ def find_max_cycle(number):
     '''
     Main function. Return the denominator of the fraction 
     with the longest recurring cycle in its decimal fraction part. 
-    :param int number: tру maximum possible of the denominator
+    :param int number: the maximum possible of the denominator
     '''
     result = ''
     d = 1
